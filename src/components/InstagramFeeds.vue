@@ -23,8 +23,8 @@ const feedsHover = ref(false);
 }
 .hover {
   position: absolute;
-  width: 88%;
-  height: 88%;
+  width: 92%;
+  height: 92%;
   background-color: black;
   opacity: 0.4;
 }

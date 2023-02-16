@@ -7,27 +7,31 @@ const text = ref("");
 </script>
 
 <template>
-  <q-header elevated class="bg-white text-black">
-    <q-toolbar>
-      <q-btn dense flat round icon="menu" @click="headerbar.toggleLeftDrawer" />
-      <div class="topbar row">
-        <div class="col-md-12 offset-md-10">
-          <div class="row q-gutter-xl justify-between items-center">
-            <div class="logo row">
-              <img class="filter size-m" src="../assets/youtube_logo_icon.svg" />
-            </div>
+  <q-header class="bg-white text-black">
+    <div class="row no-wrap">
+      <q-toolbar class="col-2">
+        <q-btn dense flat round icon="menu" @click="headerbar.toggleLeftDrawer" />
 
-            <q-input v-model="text" input-class="text-right" class="q-ml-md">
-              <template v-slot:append>
-                <q-icon v-if="text === ''" name="search" />
-                <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
-              </template>
-            </q-input>
-          </div>
-        </div>
-      </div>
-    </q-toolbar>
+        <img src="../assets/youtube_logo_icon.svg" />
+      </q-toolbar>
+
+      <q-toolbar class="col-8 justify-center">
+        <q-input v-model="text" input-class="text-right" class="q-ml-xl">
+          <template v-slot:append>
+            <q-icon v-if="text === ''" name="search" />
+            <q-icon v-else name="clear" class="cursor-pointer" @click="text = ''" />
+          </template>
+        </q-input>
+      </q-toolbar>
+      <q-toolbar class="col-2">
+        <q-space />
+        <q-btn flat round icon="img:/src/assets/video.png" class="q-mr-md" />
+        <q-btn flat round icon="img:/src/assets/alarm.png" class="q-mr-md" />
+        <q-btn flat round icon="img:/src/assets/my.png" />
+      </q-toolbar>
+    </div>
   </q-header>
+
   <q-drawer v-model="headerbar.leftDrawerOpen" side="left" bordered>
     <q-list bordered separator>
       <q-item clickable v-ripple to="/">
@@ -51,10 +55,7 @@ const text = ref("");
   <!------------------------------------------------------------------------------->
   <div class="q-pa-lg">
     <br />
-    
   </div>
 </template>
 
-<style scope>
-
-</style>
+<style scope></style>

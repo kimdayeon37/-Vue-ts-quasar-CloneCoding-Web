@@ -1,0 +1,41 @@
+@import './variables';
+
+@mixin mobile {
+    @media (max-width: #{$breakpoint-tablet}){
+        .desktop {
+            display: none;
+          }
+          .mobile {
+            display: block;
+            margin-top: -50px;
+            margin-left: 15px;
+          }
+          .searchbar {
+            display: none;
+          }
+          .profile-mobile-img {
+            width: 90px;
+            height: auto;
+          }
+          .mobile-nickname {
+            font-size: 1.3rem;
+          }
+          .mobile-mycolor {
+            background-color: #efefef;
+            border-radius: 8px;
+            font-weight: bold;
+          }
+          .info {
+            display: none;
+          }
+    }
+}
+@mixin desktop {
+    @media (min-width : #{$breakpoint-desktop}){
+        @content;
+    }
+    
+}
+@mixin test {
+    @content;
+}

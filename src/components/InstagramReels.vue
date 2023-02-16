@@ -44,8 +44,8 @@ const playHover = ref(false);
 }
 .hover {
   position: absolute;
-  width: 85%;
-  height: 90%;
+  width: 90%;
+  height: 95%;
   background-color: black;
   opacity: 0.4;
 }
