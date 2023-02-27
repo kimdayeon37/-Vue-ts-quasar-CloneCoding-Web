@@ -2,6 +2,11 @@
 import { ref } from "vue";
 
 const feedsHover = ref(false);
+const mouseoverItem = ref<number>();
+
+const mouseoverEvent = (i: number) => (mouseoverItem.value = i);
+
+const mouseoutEvent = () => (mouseoverItem.value = undefined);
 </script>
 <template>
   <div

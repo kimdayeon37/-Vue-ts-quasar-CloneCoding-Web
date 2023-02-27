@@ -1,41 +1,97 @@
-@import './variables';
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+@mixin breakpoint($breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
 
-@mixin mobile {
-    @media (max-width: #{$breakpoint-tablet}){
-        .desktop {
-            display: none;
-          }
-          .mobile {
-            display: block;
-            margin-top: -50px;
-            margin-left: 15px;
-          }
-          .searchbar {
-            display: none;
-          }
-          .profile-mobile-img {
-            width: 90px;
-            height: auto;
-          }
-          .mobile-nickname {
-            font-size: 1.3rem;
-          }
-          .mobile-mycolor {
-            background-color: #efefef;
-            border-radius: 8px;
-            font-weight: bold;
-          }
-          .info {
-            display: none;
-          }
+  @mixin mobile {
+    @include breakpoint(xs) {
+      @content;
     }
-}
-@mixin desktop {
-    @media (min-width : #{$breakpoint-desktop}){
-        @content;
+    @include breakpoint(sm) {
+      @content;
     }
-    
-}
-@mixin test {
-    @content;
-}
+  }
+  
+  @mixin desktop {
+    @include breakpoint(md) {
+      @content;
+    }
+    @include breakpoint(lg) {
+      @content;
+    }
+    @include breakpoint(xl) {
+      @content;
+    }
+  }
+
+  @include mobile {
+    .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+        margin-top: -50px;
+        margin-left: 15px;
+      }
+
+      .profile-mobile-img {
+        width: 90px;
+        height: auto;
+      }
+      .mobile-nickname {
+        font-size: 1.3rem;
+      }
+      .mobile-mycolor {
+        background-color: #efefef;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+
+  }
+  
+  // Define desktop styles
+  @include desktop {
+    .dark-bg{
+        background-color: #1D1D1D !important;
+    }
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
+
+    .q-pa-lg {
+      background-color: #fafafa;
+    }
+    .mycolor {
+      background-color: #efefef;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .nickname {
+      font-size: 1.9em;
+    }
+    .profile-img {
+      width: 150px;
+      height: auto;
+    }
+    .count {
+      font-size: 1.2em;
+    }
+    .tabs {
+      background-color: #fafafa;
+    }
+    .border {
+      border-top: #dbdbdb solid 1px;
+      margin-right: auto;
+    }
+  }
