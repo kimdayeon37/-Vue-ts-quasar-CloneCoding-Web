@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useHeaderbarStore } from "@/store/modules/headerbar";
 import FeedsHover from "../components/instagram/InstagramFeeds.vue";
 import ReelsHover from "../components/instagram/InstagramReels.vue";
 import InstaMobile from "../components/instagram/InstaMobile.vue";
 
-
-const headerbar = useHeaderbarStore();
 
 const tab = ref("feeds");
 // const leftDrawerOpen = ref(false);
@@ -76,29 +73,28 @@ const tab = ref("feeds");
         </q-tabs>
       </div>
       <div class="row">
-      <div class="col-2"></div>
-      <div class="col-8">
-        <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="feeds">
-            <div class="row justify-center q-col-gutter-lg">
-              <FeedsHover class="col-4" v-for="i in 9" :key="i" :idx="i" />
-            </div>
-          </q-tab-panel>
+        <div class="col-2"></div>
+        <div class="col-8">
+          <q-tab-panels v-model="tab" animated>
+            <q-tab-panel name="feeds">
+              <div class="row justify-center q-col-gutter-lg">
+                <FeedsHover class="col-4" v-for="i in 9" :key="i" :idx="i" />
+              </div>
+            </q-tab-panel>
 
-          <q-tab-panel name="reels">
-            <div class="row justify-center q-col-gutter-lg">
-              <ReelsHover class="col-3" v-for="i in 4" :key="i" :idx="i" />
-            </div>
-          </q-tab-panel>
-        </q-tab-panels>
+            <q-tab-panel name="reels">
+              <div class="row justify-center q-col-gutter-lg">
+                <ReelsHover class="col-3" v-for="i in 4" :key="i" :idx="i" />
+              </div>
+            </q-tab-panel>
+          </q-tab-panels>
+        </div>
       </div>
-    </div>
     </div>
 
     <!-----mobile version---->
     <InstaMobile />
     <!----------------------->
-    
   </q-page>
 </template>
 

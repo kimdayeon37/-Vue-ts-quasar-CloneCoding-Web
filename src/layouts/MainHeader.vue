@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated class="bg-primary text-white">
+  <q-header elevated class="bg-black text-white">
     <q-toolbar>
       <q-btn dense flat round icon="menu" @click="headerbar.toggleLeftDrawer" />
 

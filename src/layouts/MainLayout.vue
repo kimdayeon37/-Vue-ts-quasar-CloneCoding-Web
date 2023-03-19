@@ -7,6 +7,7 @@ const headerbar = useHeaderbarStore();
 const MainHeaderComp = defineAsyncComponent(() => import('./MainHeader.vue'))
 const InstagramHeaderComp = defineAsyncComponent(() => import('./InstagramHeader.vue'))
 const YoutubeHeaderComp = defineAsyncComponent(() => import('./YoutubeHeader.vue'))
+const AppleHeaderComp = defineAsyncComponent(() => import('./AppleHeader.vue'))
 
 const leftMenuItem = ref<{ url: string; text: string }[]>([
   { url: "/", text: "Home" },
@@ -22,9 +23,11 @@ const toggleDark = () => $q.dark.toggle();
 <template>
   <q-layout view="hHh LpR fFf">
     <!-- Header layout -->
-    <MainHeaderComp v-if="$route.name !== 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer"/>
+    <MainHeaderComp v-if="$route.name !== 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <InstagramHeaderComp v-if="$route.name === 'instagram'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <YoutubeHeaderComp v-if="$route.name === 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
+    <AppleHeaderComp v-if="$route.name === 'apple'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
+
     <!-- drawer content -->
     <q-drawer show-if-above v-model="headerbar.leftDrawerOpen" side="left" :width="240">
       <q-list bordered separator>

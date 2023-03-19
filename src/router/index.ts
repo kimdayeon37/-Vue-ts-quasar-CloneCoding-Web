@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainLayout from "../layouts/MainLayout.vue";
 import HomeViewVue from '@/views/HomeView.vue';
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -15,17 +14,22 @@ const router = createRouter({
           component: HomeViewVue,
         },
         {
-          path: "instagram",
+          path: "/instagram",
           name: 'instagram',
           component: () => import('../views/InstagramView.vue'),
         },
+          {
+            path: "/instagram/post",
+            component: () => import('../views/InstaPostView.vue'),
+          },
+
         {
-          path: "youtube",
+          path: "/youtube",
           name: 'youtube',
           component: () => import('../views/YoutubeView.vue'),
         },
         {
-          path: "apple",
+          path: "/apple",
           name: 'apple',
           component: () => import('../views/AppleView.vue'),
         }

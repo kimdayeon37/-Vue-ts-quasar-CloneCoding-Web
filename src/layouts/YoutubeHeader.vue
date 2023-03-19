@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useHeaderbarStore } from "@/store/modules/headerbar";
 import { useQuasar } from "quasar";
+
 const headerbar = useHeaderbarStore();
 
 const isSearchFocus = ref(false);

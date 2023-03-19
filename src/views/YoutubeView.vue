@@ -31,14 +31,6 @@ const selectCategory = (_category: string) => {
   }
 };
 
-interface videoType {
-  group: string;
-  title: string;
-  profile: string; 
-  channel: string;
-  count: number;
-  img: string;
-}
 
 const videoItem = ref<{ group: string; title: string; profile: string; channel: string; count: number; img: string; }[]>([
   { group: "news", title: "뉴스1", profile: "/src/assets/shm.jpeg", channel: "뉴스채널1", count: 100, img: "https://cdn.quasar.dev/img/mountains.jpg"},

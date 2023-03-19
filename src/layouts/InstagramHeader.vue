@@ -6,13 +6,12 @@ import { useQuasar } from "quasar";
 const headerbar = useHeaderbarStore();
 
 const isSearchFocus = ref(false);
-const searchVal = ref("");
+const clickSearch = () => {
+  isSearchFocus.value = !isSearchFocus.value;
+};
 
 const $q = useQuasar();
 const toggleDark = () => $q.dark.toggle();
-
-const tab = ref("feeds");
-const text = ref("");
 </script>
 
 <template>
@@ -28,22 +27,26 @@ const text = ref("");
       />
       <div class="col-md-7 offset-md-2">
         <div class="row q-gutter-xl justify-between items-center">
-          <img class="filter size-m" :class="{ 'filter-bg': $q.dark.isActive }" src="../assets/instagram_logo_icon.svg" />
-          <div class="search row items-center" v-if="$q.screen.width >= 670">
-            <q-input
-              class="col-grow"
-              v-model="searchVal"
-              outlined
-              square
-              dense
-              placeholder="검색"
-              @focus="isSearchFocus = true"
-              @blur="isSearchFocus = false"
+          <img
+            class="filter size-m"
+            :class="{ 'filter-bg': $q.dark.isActive }"
+            src="../assets/instagram_logo_icon.svg"
+          />
+          <div class="search row items-center" v-if="$q.screen.width >= 1150">
+            <div
+              v-if="!isSearchFocus"
+              @click="clickSearch"
+              class="col row items-center justify-start"
             >
-              <template #prepend>
-                <q-icon name="search" />
-              </template>
-            </q-input>
+              <img src="../assets/search.svg" class="search-img" />
+            </div>
+            <input @click="clickSearch" class="col-grow" placeholder="검색" />
+            <div
+              v-if="isSearchFocus"
+              class="after-click col row items-center justify-between"
+            >
+              <div class="exit-search col row justify-end" @click="clickSearch">⨉</div>
+            </div>
           </div>
 
           <div class="q-gutter-sm">
@@ -72,16 +75,35 @@ const text = ref("");
   color: white !important;
 }
 .search {
-  width: 20%;
+  width: 30%;
+  border-radius: 10px;
+  background-color: #efefef;
+}
+.search-img {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
 }
 .filter {
-        filter: invert(100%) sepia(98%) saturate(99%) hue-rotate(333deg) brightness(100%)
-          contrast(2%);
-      }
-
-.filter-bg{
   filter: invert(100%) sepia(98%) saturate(99%) hue-rotate(333deg) brightness(100%)
-          contrast(2%);
-      }
+    contrast(2%);
+}
 
+.filter-bg {
+  filter: invert(100%) sepia(98%) saturate(99%) hue-rotate(333deg) brightness(100%)
+    contrast(2%);
+}
+
+.col-grow {
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #efefef;
+  border: none;
+}
+.col-grow:focus {
+  outline: none;
+}
+.exit-search{
+  margin-right: 10px;
+}
 </style>
