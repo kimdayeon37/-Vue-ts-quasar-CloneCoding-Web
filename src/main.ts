@@ -15,11 +15,15 @@ import 'quasar/src/css/index.sass'
 import App from './App.vue'
 import { createPinia } from "pinia";
 import router from './router';
+import mitt from 'mitt'
+import store from './store/store.js'
 
+const emitter = mitt()
 const myApp = createApp(App).use(createPinia())
 
 myApp.use(createPinia())
 myApp.use(router)
+myApp.config.globalProperties.emitter = emitter
 
 
 myApp.use(Quasar, {
@@ -27,4 +31,4 @@ myApp.use(Quasar, {
 })
 
 // Assumes you have a <div id="app"></div> in your index.html
-myApp.mount('#app')
+myApp.use(store).mount('#app')

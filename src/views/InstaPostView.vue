@@ -9,7 +9,11 @@ Post
       <li v-if="step == 2" @click="publish">발행</li>
     </ul>
   </div>
-  
+
+
+  <p>{{ $store.state.more }}</p>
+  <button @click="$store.dispatch('getData')">더보기버튼</button>
+
   <InstaContainer
     :data="data"
     :image="image"
@@ -77,7 +81,13 @@ export default {
       step: 0,
       image: "",
       context: "",
+      myfilter: "",
     };
+  },
+  mounted() {
+    this.emitter.on("boxclick", (a) => {
+      this.myfilter = a;
+    });
   },
   components: {
     InstaContainer,
@@ -92,7 +102,7 @@ export default {
         date: "Apr 20",
         liked: false,
         content: this.context,
-        filter: "clarendon",
+        filter: this.myfilter,
       };
       this.data.unshift(mydata);
       this.step = 0;
