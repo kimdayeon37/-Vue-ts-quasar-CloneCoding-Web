@@ -127,21 +127,22 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
       <div class="q-mx-lg q-mt-md">
         <section class="content">
           <div class="row q-col-gutter-x-md q-col-gutter-y-xl">
-            <YoutubeBoxComp
-              v-for="(item, idx) in videoItem.filter((e) => {
+            <YoutubeBoxCom
+            v-for="(item, index) in videoItem.filter((e) => {
               if (categoryAll) {
                 return true;
               } else {
                 return e.group == category;
               }
             })"
-              :key="idx"
-              :title="item.title"
-              :profile="item.profile"
-              :channel="item.channel"
-              :count="item.count"
-              :img="item.img"
-            />
+            :key="index"
+            :img="item.img"
+            :title="item.title"
+            :channel="item.channel"
+            :profile="item.profile"
+            :count="item.count"
+            :group="item.group"
+          ></YoutubeBoxCom>
           </div>
         </section>
       </div>

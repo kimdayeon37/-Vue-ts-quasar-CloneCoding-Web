@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
 
 interface IProps {
   img: string;
@@ -26,7 +25,6 @@ const props = defineProps<IProps>();
           <div class="text-subtitle1 text-weight-bold" :style="{ lineHeight: '1.1em' }">{{ props.title }}</div>
           <div class="text-caption text-grey-9 q-mt-xs" :class="{ 'menu-bg': $q.dark.isActive }">{{ props.channel }}</div>
           <div class="text-caption text-grey-9 q-mt-xs" :class="{ 'menu-bg': $q.dark.isActive }">{{ props.count }}회</div>
-
         </div>
       </div>
     </article>

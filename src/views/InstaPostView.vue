@@ -10,7 +10,6 @@ Post
     </ul>
   </div>
 
-
   <p>{{ $store.state.more }}</p>
   <button @click="$store.dispatch('getData')">더보기버튼</button>
 
@@ -20,6 +19,7 @@ Post
     @writePost="context = $event"
     :step="step"
   />
+
 
   <button @click="more">더보기</button>
 
@@ -41,6 +41,7 @@ Post
 <script>
 import InstaContainer from "../components/instagram/InstaContainer.vue";
 import axios from "axios";
+import { mapMutations, mapState} from 'vuex'
 
 export default {
   data() {
@@ -78,10 +79,11 @@ export default {
         },
       ],
       더보기: 0,
-      step: 0,
+      step: 3,
       image: "",
       context: "",
       myfilter: "",
+      카운터: 0,
     };
   },
   mounted() {
@@ -92,7 +94,15 @@ export default {
   components: {
     InstaContainer,
   },
+
+  computed : {
+    ...mapState(['name', 'age', 'likes']),
+    ...mapState({작명: 'name'}) // object 자료식
+  },
+
   methods: {
+    ...mapMutations(['setMore', '좋아요']),
+
     publish() {
       let mydata = {
         name: "John Doe",

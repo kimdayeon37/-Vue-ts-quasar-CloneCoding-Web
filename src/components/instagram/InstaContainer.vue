@@ -23,12 +23,18 @@ write!</textarea
         >
       </div>
     </div>
+
+    <!-- 마이페이지 -->
+    <div v-if="step == 3">
+      <MyPage />
+    </div>
   </div>
 </template>
 
 <script>
 import InstaPost from "./InstaPost.vue";
 import FilterBox from "./FilterBox.vue";
+import MyPage from "./MyPage.vue";
 
 export default {
   data() {
@@ -72,6 +78,7 @@ export default {
   components: {
     InstaPost,
     FilterBox,
+    MyPage
   },
   props: {
     data: Array,

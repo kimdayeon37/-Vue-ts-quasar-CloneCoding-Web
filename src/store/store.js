@@ -29,7 +29,7 @@ const store = createStore({
             axios.get('https://codingapple1.github.io/vue/more0.json')
             .then((a)=>{
                 console.log(a.data)
-                context.commit('setMore', a.data) // 가져온 데이터를 위에 저장시키고 싶어서 commit의 도움으로(mutations함수의 도움으로) state에 저장
+                context.commit('setMore', a.data)
             })
         }
     }
