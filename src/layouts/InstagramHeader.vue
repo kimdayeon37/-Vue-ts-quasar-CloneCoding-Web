@@ -28,6 +28,7 @@ const toggleDark = () => $q.dark.toggle();
       <div class="col-md-7 offset-md-2">
         <div class="row q-gutter-xl justify-between items-center">
           <img
+          @click="$router.push('/instagram/post')"
             class="filter size-m"
             :class="{ 'filter-bg': $q.dark.isActive }"
             src="../assets/instagram_logo_icon.svg"
@@ -38,7 +39,7 @@ const toggleDark = () => $q.dark.toggle();
               @click="clickSearch"
               class="col row items-center justify-start"
             >
-              <img src="../assets/search.svg" class="search-img" />
+              <q-icon name="search" class="search-img" />
             </div>
             <input @click="clickSearch" class="col-grow" placeholder="검색" />
             <div
@@ -85,13 +86,12 @@ const toggleDark = () => $q.dark.toggle();
   height: 15px;
 }
 .filter {
-  filter: invert(100%) sepia(98%) saturate(99%) hue-rotate(333deg) brightness(100%)
-    contrast(2%);
+    cursor: pointer;
 }
 
 .filter-bg {
-  filter: invert(100%) sepia(98%) saturate(99%) hue-rotate(333deg) brightness(100%)
-    contrast(2%);
+  filter: invert(100%) sepia(9%) saturate(1%) hue-rotate(3deg) brightness(300%)
+    contrast(100%);
 }
 
 .col-grow {

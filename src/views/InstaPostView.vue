@@ -1,47 +1,118 @@
-Post
 <template>
-  <div class="header">
-    <ul class="header-button-left">
-      <li>Cancel</li>
-    </ul>
-    <ul class="header-button-right">
-      <li v-if="step == 1" @click="step++">Next</li>
-      <li v-if="step == 2" @click="publish">발행</li>
-    </ul>
-  </div>
+  <q-page class="q-pa-sm border" :class="{ 'dark-bg': $q.dark.isActive }">
+    <q-layout>
+      <q-drawer :breakpoint="790" show-if-above :width="230" :mini="miniOnOff" side="left" bordered>
+        <q-list class="item-center">
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="home" />
+            </q-item-section>
+            <q-item-section>홈</q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="search" />
+            </q-item-section>
 
-  <p>{{ $store.state.more }}</p>
-  <button @click="$store.dispatch('getData')">더보기버튼</button>
+            <q-item-section>검색</q-item-section>
+          </q-item>
 
-  <InstaContainer
-    :data="data"
-    :image="image"
-    @writePost="context = $event"
-    :step="step"
-  />
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="explore" />
+            </q-item-section>
 
+            <q-item-section>탐색 탭</q-item-section>
+          </q-item>
 
-  <button @click="more">더보기</button>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="slideshow" />
+            </q-item-section>
 
-  <div class="footer">
-    <ul class="footer-button-plus">
-      <input
-        @change="upload"
-        multiple
-        accept="image/*"
-        type="file"
-        id="file"
-        class="inputfile"
-      />
-      <label for="file" class="input-plus">+</label>
-    </ul>
-  </div>
+            <q-item-section>릴스</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send" />
+            </q-item-section>
+            <q-item-section>메세지</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="favorite_border" />
+            </q-item-section>
+            <q-item-section>알림</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="add_circle_outline" />
+            </q-item-section>
+            <q-item-section>만들기</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple @click="$router.push('/instagram')">
+            <q-item-section avatar>
+              <q-avatar class="profile-img" style="width: 25px; height: auto">
+                <q-img src="/src/assets/shm.jpeg" />
+              </q-avatar>
+            </q-item-section>
+            <q-item-section>프로필</q-item-section>
+          </q-item>
+        </q-list>
+      </q-drawer>
+
+      <q-page-container>
+        <div class="q-mx-lg q-mt-xl">
+          <section class="content">
+            <div class="row q-col-gutter-x-md q-col-gutter-y-xl">
+              <div class="header" v-if="step == 1 || step == 2">
+                <ul class="header-button-left">
+                  <li>Cancel</li>
+                </ul>
+                <ul class="header-button-right">
+                  <li v-if="step == 1" @click="step++">Next</li>
+                  <li v-if="step == 2" @click="publish">발행</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <InstaContainer
+            :data="data"
+            :image="image"
+            @writePost="context = $event"
+            :step="step"
+          />
+
+          <button @click="more">더보기</button>
+
+          <div class="footer">
+            <ul class="footer-button-plus">
+              <input
+                @change="upload"
+                multiple
+                accept="image/*"
+                type="file"
+                id="file"
+                class="inputfile"
+              />
+              <label for="file" class="input-plus">+</label>
+            </ul>
+          </div>
+        </div>
+      </q-page-container>
+    </q-layout>
+  </q-page>
 </template>
 
 <script>
 import InstaContainer from "../components/instagram/InstaContainer.vue";
 import axios from "axios";
-import { mapMutations, mapState} from 'vuex'
+import { mapMutations, mapState } from "vuex";
 
 export default {
   data() {
@@ -79,7 +150,7 @@ export default {
         },
       ],
       더보기: 0,
-      step: 3,
+      step: 0,
       image: "",
       context: "",
       myfilter: "",
@@ -95,13 +166,13 @@ export default {
     InstaContainer,
   },
 
-  computed : {
-    ...mapState(['name', 'age', 'likes']),
-    ...mapState({작명: 'name'}) // object 자료식
+  computed: {
+    ...mapState(["name", "age", "likes"]),
+    ...mapState({ 작명: "name" }), // object 자료식
   },
 
   methods: {
-    ...mapMutations(['setMore', '좋아요']),
+    ...mapMutations(["setMore", "좋아요"]),
 
     publish() {
       let mydata = {
@@ -144,28 +215,20 @@ export default {
 
 <style scoped>
 body {
-  margin: 0;
+  margin: 0px;
 }
 ul {
   padding: 5px;
   list-style-type: none;
 }
-.logo {
-  width: 22px;
-  margin: auto;
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 13px;
-}
+
 .header {
   width: 100%;
   height: 40px;
   background-color: white;
   padding-bottom: 8px;
   position: sticky;
-  top: 0;
+  top: 0px;
 }
 .header-button-left {
   color: skyblue;

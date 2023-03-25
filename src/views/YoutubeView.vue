@@ -31,7 +31,6 @@ const selectCategory = (_category: string) => {
   }
 };
 
-
 const videoItem = ref<{ group: string; title: string; profile: string; channel: string; count: number; img: string; }[]>([
   { group: "news", title: "뉴스1", profile: "/src/assets/shm.jpeg", channel: "뉴스채널1", count: 100, img: "https://cdn.quasar.dev/img/mountains.jpg"},
   { group: "news", title: "뉴스2", profile: "/src/assets/shm.jpeg", channel: "뉴스채널2", count: 321, img: "https://cdn.quasar.dev/img/mountains.jpg" },
@@ -66,7 +65,7 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
     </q-header>
 
     <q-drawer
-      :breakpoint="790"
+      
       show-if-above
       v-model="leftDrawerOpen"
       :width="230"
@@ -84,7 +83,7 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
         </q-item>
         <q-item clickable v-ripple>
           <q-item-section avatar>
-            <q-icon name="img:src/assets/shorts.svg" />
+            <q-icon name="music_video" />
             <div class="mini-caption q-mini-drawer-only">shorts</div>
           </q-item-section>
 
@@ -93,7 +92,7 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
 
         <q-item clickable v-ripple>
           <q-item-section avatar>
-            <q-icon name="img:src/assets/subscribe.svg" />
+            <q-icon name="ondemand_video" />
             <div class="mini-caption q-mini-drawer-only">구독</div>
           </q-item-section>
 
@@ -104,8 +103,8 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
 
         <q-item clickable v-ripple>
           <q-item-section avatar>
-            <q-icon name="img:src/assets/download.svg" />
-            <div class="mini-caption q-mini-drawer-only">보관함</div>
+            <q-icon name="video_library" />
+            <div class="mini-caption q-mini-drawer-only">시청기록</div>
           </q-item-section>
 
           <q-item-section>보관함</q-item-section>
@@ -113,7 +112,7 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
 
         <q-item clickable v-ripple>
           <q-item-section avatar>
-            <q-icon name="img:src/assets/history.svg" />
+            <q-icon name="history" />
             <div class="mini-caption q-mini-drawer-only">시청 기록</div>
           </q-item-section>
           <q-item-section>시청 기록</q-item-section>
@@ -127,22 +126,21 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
       <div class="q-mx-lg q-mt-md">
         <section class="content">
           <div class="row q-col-gutter-x-md q-col-gutter-y-xl">
-            <YoutubeBoxCom
-            v-for="(item, index) in videoItem.filter((e) => {
+            <YoutubeBoxComp
+              v-for="(item, idx) in videoItem.filter((e) => {
               if (categoryAll) {
                 return true;
               } else {
                 return e.group == category;
               }
             })"
-            :key="index"
-            :img="item.img"
-            :title="item.title"
-            :channel="item.channel"
-            :profile="item.profile"
-            :count="item.count"
-            :group="item.group"
-          ></YoutubeBoxCom>
+              :key="idx"
+              :title="item.title"
+              :profile="item.profile"
+              :channel="item.channel"
+              :count="item.count"
+              :img="item.img"
+            />
           </div>
         </section>
       </div>

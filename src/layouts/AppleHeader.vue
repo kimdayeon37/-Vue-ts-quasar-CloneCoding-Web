@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { useHeaderbarStore } from "@/store/modules/headerbar";
 import { useQuasar } from "quasar";
 

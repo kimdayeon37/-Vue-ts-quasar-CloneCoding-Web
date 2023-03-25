@@ -25,6 +25,7 @@ const toggleDark = () => $q.dark.toggle();
     <!-- Header layout -->
     <MainHeaderComp v-if="$route.name !== 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <InstagramHeaderComp v-if="$route.name === 'instagram'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
+    <InstagramHeaderComp v-if="$route.name === 'instapost'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <YoutubeHeaderComp v-if="$route.name === 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <AppleHeaderComp v-if="$route.name === 'apple'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
 

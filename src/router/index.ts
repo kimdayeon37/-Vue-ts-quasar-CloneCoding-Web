@@ -20,6 +20,7 @@ const router = createRouter({
         },
           {
             path: "/instagram/post",
+            name: 'instapost',
             component: () => import('../views/InstaPostView.vue'),
           },
 

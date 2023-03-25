@@ -31,6 +31,7 @@ export default {
 <style scoped>
 .post {
   width: 100%;
+  padding: 50px 0px 0px 100px;
 }
 .profile {
   background-image: url("https://placeimg.com/100/100/arch");
@@ -48,18 +49,17 @@ export default {
   font-size: 14px;
 }
 .post-header {
-  height: 30px;
-  padding: 10px;
+  height: 10px;
 }
 .post-body {
+  margin-top: 30px;
   background-image: url("https://placeimg.com/640/480/animals");
+  width: 450px;
   height: 450px;
   background-position: center;
   background-size: cover;
 }
 .post-content {
-  padding-left: 15px;
-  padding-right: 15px;
   font-size: 14px;
 }
 .date {
