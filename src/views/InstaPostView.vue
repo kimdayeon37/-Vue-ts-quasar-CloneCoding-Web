@@ -1,7 +1,14 @@
 <template>
-  <q-page class="q-pa-sm border" :class="{ 'dark-bg': $q.dark.isActive }">
+  <q-page class="q-pa-sm border">
     <q-layout>
-      <q-drawer :breakpoint="790" show-if-above :width="230" :mini="miniOnOff" side="left" bordered>
+      <q-drawer
+        class="fixed-drawer"
+        show-if-above
+        width="250"
+        side="left"
+        bordered
+        v-if="$q.screen.width >= 1150"
+      >
         <q-list class="item-center">
           <q-item clickable v-ripple>
             <q-item-section avatar>
@@ -9,11 +16,11 @@
             </q-item-section>
             <q-item-section>홈</q-item-section>
           </q-item>
+
           <q-item clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="search" />
             </q-item-section>
-
             <q-item-section>검색</q-item-section>
           </q-item>
 
@@ -21,7 +28,6 @@
             <q-item-section avatar>
               <q-icon name="explore" />
             </q-item-section>
-
             <q-item-section>탐색 탭</q-item-section>
           </q-item>
 
@@ -29,7 +35,6 @@
             <q-item-section avatar>
               <q-icon name="slideshow" />
             </q-item-section>
-
             <q-item-section>릴스</q-item-section>
           </q-item>
 
@@ -51,7 +56,17 @@
             <q-item-section avatar>
               <q-icon name="add_circle_outline" />
             </q-item-section>
-            <q-item-section>만들기</q-item-section>
+            <input
+              @change="upload"
+              multiple
+              accept="image/*"
+              type="file"
+              id="file"
+              class="inputfile"
+            />
+            <label for="file" class="input-plus">
+              <q-item-section>만들기</q-item-section>
+            </label>
           </q-item>
 
           <q-item clickable v-ripple @click="$router.push('/instagram')">
@@ -62,8 +77,102 @@
             </q-item-section>
             <q-item-section>프로필</q-item-section>
           </q-item>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br /><br />
+          <br />
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="menu" />
+            </q-item-section>
+            <q-item-section>더보기</q-item-section>
+          </q-item>
         </q-list>
       </q-drawer>
+
+      <!-- tablet drawer -->
+      <q-drawer
+        class="fixed-drawer"
+        show-if-above
+        width="60"
+        bordered
+        side="left"
+        v-if="$q.screen.width <= 1150 && $q.screen.width >= 576"
+      >
+        <q-list padding class="item-center">
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="home" />
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="search" />
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="explore" />
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="slideshow" />
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="send" />
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="favorite_border" />
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple >
+            <q-item-section avatar>
+             
+              <q-icon name="add_circle_outline" />
+  
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple @click="$router.push('/instagram')">
+            <q-item-section avatar>
+              <q-avatar class="profile-img" style="width: 25px; height: auto">
+                <q-img src="/src/assets/shm.jpeg" />
+              </q-avatar>
+            </q-item-section>
+          </q-item>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br /><br />
+          <br />
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="menu" />
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-drawer>
+      <!------->
 
       <q-page-container>
         <div class="q-mx-lg q-mt-xl">
@@ -88,21 +197,7 @@
             :step="step"
           />
 
-          <button @click="more">더보기</button>
-
-          <div class="footer">
-            <ul class="footer-button-plus">
-              <input
-                @change="upload"
-                multiple
-                accept="image/*"
-                type="file"
-                id="file"
-                class="inputfile"
-              />
-              <label for="file" class="input-plus">+</label>
-            </ul>
-          </div>
+          <button class="add" v-if="step == 0">더보기</button>
         </div>
       </q-page-container>
     </q-layout>
@@ -213,7 +308,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.fixed-drawer {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
 body {
   margin: 0px;
 }
@@ -245,26 +346,16 @@ ul {
   cursor: pointer;
   margin-top: 10px;
 }
-.footer {
-  width: 100%;
-  position: sticky;
-  bottom: 0;
-  padding-bottom: 10px;
-  background-color: white;
-}
-.footer-button-plus {
-  width: 80px;
-  margin: auto;
-  text-align: center;
-  cursor: pointer;
-  font-size: 24px;
-  padding-top: 12px;
-}
 .inputfile {
   display: none;
+  margin-top: 5px;
 }
 .input-plus {
+  margin-top: 5px;
   cursor: pointer;
+}
+.add {
+  margin-left: 95px;
 }
 #app {
   box-sizing: border-box;

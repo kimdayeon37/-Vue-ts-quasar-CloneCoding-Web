@@ -19,11 +19,15 @@ $breakpoints: (
       @content;
     }
   }
-  
-  @mixin desktop {
+
+  @mixin tablet {
     @include breakpoint(md) {
       @content;
     }
+  }
+  
+  @mixin desktop {
+
     @include breakpoint(lg) {
       @content;
     }
@@ -33,6 +37,9 @@ $breakpoints: (
   }
 
   @include mobile {
+    .dark-bg{
+        background-color: #1D1D1D !important;
+    }
     .desktop {
         display: none;
       }
@@ -55,6 +62,12 @@ $breakpoints: (
         font-weight: bold;
       }
 
+  }
+
+  @include tablet {
+    .dark-bg{
+      background-color: #1D1D1D !important;
+  }
   }
   
   // Define desktop styles
