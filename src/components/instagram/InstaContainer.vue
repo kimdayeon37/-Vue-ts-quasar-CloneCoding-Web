@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="step == 0">
-      <InstaPost :data="a" v-for="(a, i) in data" :key="i" />
+      <InstaPost :data="a" v-for="(a, i) in data" :key="i" :idx="i" />
     </div>
 
     <!-- 필터선택페이지 -->
@@ -24,17 +24,13 @@ write!</textarea
       </div>
     </div>
 
-    <!-- 마이페이지 -->
-    <div v-if="step == 3">
-      <MyPage />
-    </div>
+
   </div>
 </template>
 
 <script>
 import InstaPost from "./InstaPost.vue";
 import FilterBox from "./FilterBox.vue";
-import MyPage from "./MyPage.vue";
 
 export default {
   data() {
@@ -68,6 +64,7 @@ export default {
         "xpro2",
       ],
       myfilter: '',
+      idx: 0,
     };
   },
   mounted() {
@@ -78,7 +75,6 @@ export default {
   components: {
     InstaPost,
     FilterBox,
-    MyPage
   },
   props: {
     data: Array,

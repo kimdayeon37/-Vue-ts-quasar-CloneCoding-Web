@@ -1,5 +1,6 @@
 <template>
   <q-page class="q-pa-sm border">
+    <hr />
     <q-layout>
       <q-drawer
         class="fixed-drawer"
@@ -17,7 +18,7 @@
             <q-item-section>홈</q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple @click="step += 3">
             <q-item-section avatar>
               <q-icon name="search" />
             </q-item-section>
@@ -88,7 +89,7 @@
 
           <q-item clickable v-ripple>
             <q-item-section avatar>
-              <q-icon name="menu" />
+              <q-icon name="density_medium" />
             </q-item-section>
             <q-item-section>더보기</q-item-section>
           </q-item>
@@ -141,11 +142,9 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple >
+          <q-item clickable v-ripple>
             <q-item-section avatar>
-             
               <q-icon name="add_circle_outline" />
-  
             </q-item-section>
           </q-item>
 
@@ -167,7 +166,7 @@
 
           <q-item clickable v-ripple>
             <q-item-section avatar>
-              <q-icon name="menu" />
+              <q-icon name="density_medium" />
             </q-item-section>
           </q-item>
         </q-list>
@@ -197,7 +196,12 @@
             :step="step"
           />
 
-          <button class="add" v-if="step == 0">더보기</button>
+          <button class="add" v-if="step == 0">이전게시물 더보기</button>
+        </div>
+
+        <!-- 마이페이지 -->
+        <div v-if="step == 3">
+          <SearchPage />
         </div>
       </q-page-container>
     </q-layout>
@@ -205,45 +209,16 @@
 </template>
 
 <script>
+import data from "../assets/postdata";
 import InstaContainer from "../components/instagram/InstaContainer.vue";
+import SearchPage from "../components/instagram/SearchPage.vue";
+
 import axios from "axios";
 import { mapMutations, mapState } from "vuex";
-
 export default {
   data() {
     return {
-      data: [
-        {
-          name: "Kim Hyun",
-          userImage: "https://placeimg.com/100/100/arch",
-          postImage: "https://placeimg.com/640/480/arch",
-          likes: 36,
-          date: "May 15",
-          liked: false,
-          content: "오늘 무엇을 했냐면요 아무것도 안했어요 ?",
-          filter: "perpetua",
-        },
-        {
-          name: "John Doe",
-          userImage: "https://placeimg.com/200/200/people",
-          postImage: "https://placeimg.com/640/480/people",
-          likes: 20,
-          date: "Apr 20",
-          liked: false,
-          content: "흔한 자랑스타그램",
-          filter: "clarendon",
-        },
-        {
-          name: "Minny",
-          userImage: "https://placeimg.com/100/100/animals",
-          postImage: "https://placeimg.com/640/480/animals",
-          likes: 49,
-          date: "Apr 4",
-          liked: false,
-          content: "우리집 개는 화장실 물도 내림",
-          filter: "lofi",
-        },
-      ],
+      data: data,
       더보기: 0,
       step: 0,
       image: "",
@@ -259,6 +234,7 @@ export default {
   },
   components: {
     InstaContainer,
+    SearchPage,
   },
 
   computed: {
@@ -309,6 +285,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+hr {
+  background: #efefef;
+  height: 1px;
+  border: 0;
+}
 .fixed-drawer {
   position: sticky;
   top: 0;
@@ -322,7 +303,6 @@ ul {
   padding: 5px;
   list-style-type: none;
 }
-
 .header {
   width: 100%;
   height: 40px;

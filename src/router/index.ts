@@ -23,6 +23,11 @@ const router = createRouter({
             name: 'instapost',
             component: () => import('../views/InstaPostView.vue'),
           },
+          {
+            path: "/instagram/search",
+            name: 'instasearch',
+            component: () => import('../components/instagram/SearchPage.vue'),
+          },
 
         {
           path: "/youtube",

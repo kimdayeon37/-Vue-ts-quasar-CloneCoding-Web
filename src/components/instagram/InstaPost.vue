@@ -2,22 +2,29 @@
   <div class="post">
     <div class="post-header">
       <div class="profile" :style="{ backgroundImage: `url(${data.userImage})` }"></div>
-      <span class="profile-name">{{ data.name }}</span>
+      <span class="profile-name">{{ data.name }}&nbsp;</span>
+      <p class="date">• {{ data.date }}</p>
     </div>
     <div
       :class="data.filter"
       class="post-body"
       :style="{ backgroundImage: `url(${data.postImage})` }"
-      @click="$store.commit('좋아요')"
+      @click="$store.commit('좋아요', idx)"
     ></div>
 
+    <div class="q-pa-sm q-gutter-lg">
+      <q-icon name="favorite_border" size="25px" @click="[$store.commit('좋아요', idx),]" />
+      <q-icon name="chat_bubble_outline" size="25px" />
+      <q-icon name="send" size="25px" />
+    </div>
+
     <div class="post-content">
-      <p>{{ $store.state.likes }} Likes</p>
+      <b>좋아요 {{ $store.state.likes[idx] }}개 {{ $store.state.heart[idx] }}</b>
       <p>
         <strong>{{ data.name }}</strong> {{ data.content }}
       </p>
-      <p class="date">{{ data.date }}</p>
     </div>
+    <hr />
   </div>
 </template>
 
@@ -25,10 +32,18 @@
 export default {
   props: {
     data: Object,
+    idx: Number,
   },
 };
 </script>
 <style scoped>
+hr {
+  background: #efefef;
+  margin-left: -5px;
+  width: 450px;
+  height: 1px;
+  border: 0;
+}
 .post {
   width: 100%;
   padding: 50px 0px 0px 100px;
@@ -47,6 +62,7 @@ export default {
   padding-left: 10px;
   padding-top: 7px;
   font-size: 14px;
+  font-weight: bold;
 }
 .post-header {
   height: 10px;
@@ -65,6 +81,6 @@ export default {
 .date {
   font-size: 11px;
   color: grey;
-  margin-top: -8px;
+  padding: 10px;
 }
 </style>
