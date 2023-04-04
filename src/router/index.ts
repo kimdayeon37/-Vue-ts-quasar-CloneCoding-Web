@@ -16,17 +16,12 @@ const router = createRouter({
         {
           path: "/instagram",
           name: 'instagram',
-          component: () => import('../views/InstagramView.vue'),
+          component: () => import('../views/InstaPostView.vue'),
         },
           {
-            path: "/instagram/post",
-            name: 'instapost',
-            component: () => import('../views/InstaPostView.vue'),
-          },
-          {
-            path: "/instagram/search",
-            name: 'instasearch',
-            component: () => import('../components/instagram/SearchPage.vue'),
+            path: "/instagram/mypage",
+            name: 'instamypage',
+            component: () => import('../components/instagram/MyPage.vue'),
           },
 
         {

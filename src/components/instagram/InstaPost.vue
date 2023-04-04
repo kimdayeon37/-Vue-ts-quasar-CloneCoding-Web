@@ -5,17 +5,29 @@
       <span class="profile-name">{{ data.name }}&nbsp;</span>
       <p class="date">• {{ data.date }}</p>
     </div>
-    <div
-      :class="data.filter"
-      class="post-body"
-      :style="{ backgroundImage: `url(${data.postImage})` }"
-      @click="$store.commit('좋아요', idx)"
-    ></div>
+    <div class="post-body1">
+      <div
+        :class="data.filter"
+        class="post-body"
+        :style="{ backgroundImage: `url(${data.postImage})` }"
+        @click="$store.commit('좋아요', idx)"
+      ></div>
 
-    <div class="q-pa-sm q-gutter-lg">
-      <q-icon name="favorite_border" size="25px" @click="[$store.commit('좋아요', idx),]" />
-      <q-icon name="chat_bubble_outline" size="25px" />
-      <q-icon name="send" size="25px" />
+      <div class="row justify-between">
+        <div class="col-4 q-gutter-md">
+          <q-icon
+            name="favorite_border"
+            class="heart"
+            size="25px"
+            @click="[$store.commit('좋아요', idx)]"
+          />
+          <q-icon name="chat_bubble_outline" size="25px" />
+          <q-icon name="send" size="25px" />
+        </div>
+        <div class="col-4">
+          <q-icon name="turned_in_not" class="bookmark" size="30px" />
+        </div>
+      </div>
     </div>
 
     <div class="post-content">
@@ -82,5 +94,11 @@ hr {
   font-size: 11px;
   color: grey;
   padding: 10px;
+}
+.heart {
+  margin-left: 14px;
+}
+.bookmark {
+  margin-left: -250px;
 }
 </style>

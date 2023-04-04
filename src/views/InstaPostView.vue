@@ -70,7 +70,7 @@
             </label>
           </q-item>
 
-          <q-item clickable v-ripple @click="$router.push('/instagram')">
+          <q-item clickable v-ripple @click="$router.push('/instagram/mypage')">
             <q-item-section avatar>
               <q-avatar class="profile-img" style="width: 25px; height: auto">
                 <q-img src="/src/assets/shm.jpeg" />
@@ -148,7 +148,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple @click="$router.push('/instagram')">
+          <q-item clickable v-ripple @click="$router.push('/instagram/mypage')">
             <q-item-section avatar>
               <q-avatar class="profile-img" style="width: 25px; height: auto">
                 <q-img src="/src/assets/shm.jpeg" />
@@ -199,7 +199,7 @@
           <button class="add" v-if="step == 0">이전게시물 더보기</button>
         </div>
 
-        <!-- 마이페이지 -->
+        <!-- 서칭페이지 -->
         <div v-if="step == 3">
           <SearchPage />
         </div>

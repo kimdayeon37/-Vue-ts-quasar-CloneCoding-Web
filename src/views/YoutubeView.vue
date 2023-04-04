@@ -65,7 +65,6 @@ const videoItem = ref<{ group: string; title: string; profile: string; channel: 
     </q-header>
 
     <q-drawer
-      
       show-if-above
       v-model="leftDrawerOpen"
       :width="230"

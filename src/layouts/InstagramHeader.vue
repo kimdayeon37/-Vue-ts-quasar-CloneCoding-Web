@@ -28,7 +28,7 @@ const toggleDark = () => $q.dark.toggle();
       <div class="col-md-7 offset-md-2">
         <div class="row q-gutter-xl justify-between items-center">
           <img
-          @click="$router.push('/instagram/post')"
+          @click="$router.push('/instagram')"
             class="filter size-m"
             :class="{ 'filter-bg': $q.dark.isActive }"
             src="../assets/instagram_logo_icon.svg"
