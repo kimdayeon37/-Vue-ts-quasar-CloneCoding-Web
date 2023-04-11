@@ -10,7 +10,7 @@ const router = createRouter({
       children: [
         {
           path: '',
-          component: () => import('../views/HomeView.vue'),
+          component: () => import('../views/StarbucksView.vue'),
         },
         {
           path: "/instagram",

@@ -10,7 +10,7 @@ const YoutubeHeaderComp = defineAsyncComponent(() => import('./YoutubeHeader.vue
 const AppleHeaderComp = defineAsyncComponent(() => import('./AppleHeader.vue'))
 
 const leftMenuItem = ref<{ url: string; text: string }[]>([
-  { url: "/", text: "Home" },
+  { url: "/", text: "Starbucks" },
   { url: "/instagram", text: "Instagram" },
   { url: "/youtube", text: "Youtube" },
   { url: "/apple", text: "Apple" },
