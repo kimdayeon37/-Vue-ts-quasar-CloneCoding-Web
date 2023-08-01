@@ -1,58 +1,52 @@
 <script>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { gsap } from 'gsap';
+import { ref, onMounted, onUnmounted } from "vue";
+import { gsap } from "gsap";
 
 export default {
+
   setup() {
     const badgeEl = ref(null);
 
     const handleScroll = () => {
-      console.log('scroll!');
+      console.log("scroll!");
       if (window.scrollY > 500) {
         // 배지 숨기기
         gsap.to(badgeEl.value, {
           duration: 0.6,
           opacity: 0,
-          display: 'none'
+          display: "none",
         });
       } else {
         // 배지 보이기
         gsap.to(badgeEl.value, {
           duration: 0.6,
           opacity: 1,
-          display: 'block'
+          display: "block",
         });
       }
     };
 
     onMounted(() => {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener("scroll", handleScroll);
     });
 
     onUnmounted(() => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     });
 
     return {
-      badgeEl
+      badgeEl,
     };
   },
+
   data() {
     return {
       isFocused: false,
       placeholder: "",
+      fadeEls: [],
     };
   },
-  // mounted() {
-    
-  //   // GSAP 애니메이션 코드
-  //   const badgeEl = document.querySelector('header .badges');
-  //   if (window.scrollY > 500) {
-  //     gsap.to(badgeEl, { duration: 0.6, opacity: 0, display: 'none' });
-  //   } else {
-  //     gsap.to(badgeEl, { duration: 0.6, opacity: 1, display: 'block' });
-  //   }
-  // },
+
   methods: {
     focusInput() {
       this.$refs.searchInput.focus();
@@ -66,15 +60,12 @@ export default {
       this.placeholder = "";
     },
   },
-  // handleScroll() {
-  //   console.log('scroll!');
-    // const badgeE1 = document.querySelector('header .badges');
-    // if (window.scrollY > 500) {
-    //     gsap.to(badgeE1, { duration: 0.6, opacity: 0, display: 'none' });
-    //   } else {
-    //     gsap.to(badgeE1, { duration: 0.6, opacity: 1, display: 'block' });
-    //   }
-  //}
+  // // new Swiper(선택자, 옵션)
+  //   new Swiper('.notice-line .swiper-container', {
+  //     direction: 'vertical',
+  //     autoplay: true,
+  //     loop: true
+  //   });
 };
 </script>
 
@@ -424,6 +415,55 @@ export default {
         </div>
       </div>
     </div>
+
+    <!-- VISUAL-->
+    <section class="visual">
+      <div class="inner">
+        <div class="title fade-in">
+          <img
+            src="../assets/starbucksImages/visual_title.png"
+            alt="starbucks delightful start to the years"
+          />
+          <a href="javescript:void(0)" class="btn btn--brown">자세히 보기</a>
+        </div>
+        <div class="fade-in">
+          <img
+            src="../assets/starbucksImages/visual_cup1.png"
+            alt="new oatmeal latte"
+            class="cup1 image"
+          />
+          <img
+            src="../assets/starbucksImages/visual_cup1_text.png"
+            alt="오트밀라떼"
+            class="cup1 text"
+          />
+        </div>
+        <div class="fade-in">
+          <img
+            src="../assets/starbucksImages/visual_cup2.png"
+            alt="new caramel mocha"
+            class="cup2 image"
+          />
+          <img
+            src="../assets/starbucksImages/visual_cup2_text.png"
+            alt="카라멜 모카"
+            class="cup2 text"
+          />
+        </div>
+        <div class="fade-in">
+          <img
+            src="../assets/starbucksImages/visual_spoon.png"
+            alt="Spoon"
+            class="spoon"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!--NOTICE-->
+    <section class="notice">
+      <!--NOTICE LINE-->
+    </section>
   </div>
 </template>
 
@@ -450,6 +490,58 @@ img {
   width: 1100px;
   margin: 0 auto;
   position: relative;
+}
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--brown {
+  color: #592b18;
+  border-color: #592b18;
+}
+.btn.btn--brown:hover {
+  color: #fff;
+  background-color: #592b18;
+}
+.btn.btn--gold {
+  color: #d9aa8a;
+  border-color: #d9aa8a;
+}
+.btn.btn--gold:hover {
+  color: #fff;
+  background-color: #d9aa8a;
+}
+.btn.btn--white {
+  color: #fff;
+  border-color: #fff;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #fff;
 }
 
 /*HEADER*/
@@ -619,5 +711,138 @@ img {
   margin-bottom: 12px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+/* VISUAL */
+.visual {
+  margin-top: 70px;
+  background-image: url("../assets/starbucksImages/visual_bg.jpg");
+  background-position: center;
+}
+.visual .inner {
+  height: 646px;
+}
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+.visual .title .btn {
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+.visual .cup1.text {
+  position: absolute;
+  top: 50px;
+  right: 171px;
+}
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  right: 275px;
+}
+.visual .fade-in {
+  opacity: 1;
+}
+
+/*NOTICE*/
+/*NOTICE LINE*/
+.notice .notice-line {
+  position: relative;
+}
+.notice .notice-line .bg-left {
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.notice .notice-line .bg-right {
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.notice .notice-line .inner {
+  height: 62px;
+  z-index: 1;
+  display: flex;
+}
+.notice .notice-line .inner__left {
+  width: 60%;
+  height: 100%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left h2 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+.notice .notice-line .inner__left .swiper-container {
+  height: 62px;
+  flex-grow: 1;
+}
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
+.notice .notice-line .inner__left .notice-line__more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__left .notice-line__more .material-icons {
+  color: #fff;
+  font-size: 30px;
+}
+.notice .notice-line .inner__right {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.notice .notice-line .inner__right h2 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.notice .notice-line .inner__right .toggle-promotion {
+  width: 62px;
+  height: 62px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notice .notice-line .inner__right .toggle-promotion .material-icons {
+  font-size: 30px;
 }
 </style>

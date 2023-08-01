@@ -10,7 +10,7 @@ const YoutubeHeaderComp = defineAsyncComponent(() => import('./YoutubeHeader.vue
 const AppleHeaderComp = defineAsyncComponent(() => import('./AppleHeader.vue'))
 
 const leftMenuItem = ref<{ url: string; text: string }[]>([
-  { url: "/", text: "Starbucks" },
+  { url: "/starbucks", text: "Starbucks" },
   { url: "/instagram", text: "Instagram" },
   { url: "/youtube", text: "Youtube" },
   { url: "/apple", text: "Apple" },
@@ -23,7 +23,7 @@ const toggleDark = () => $q.dark.toggle();
 <template>
   <q-layout view="hHh LpR fFf">
     <!-- Header layout -->
-    <MainHeaderComp v-if="$route.name !== 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
+    <MainHeaderComp v-if="$route.name === 'starbucks'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <InstagramHeaderComp v-if="$route.name === 'instagram'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <InstagramHeaderComp v-if="$route.name === 'instamypage'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
     <YoutubeHeaderComp v-if="$route.name === 'youtube'" :drawer="headerbar.leftDrawerOpen" @update:drawer="headerbar.toggleLeftDrawer" />
@@ -55,5 +55,6 @@ const toggleDark = () => $q.dark.toggle();
   .z-index {
     position: relative;
     z-index: 1;
+    padding-top: 0px !important;
   }
 </style>
