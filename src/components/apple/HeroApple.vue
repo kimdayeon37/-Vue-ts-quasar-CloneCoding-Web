@@ -41,18 +41,10 @@ img {
 p {
   line-height: 1.6;
 }
-/* Background image text 화면에서 없앰 */
-.bgtext {
-  display: block;
-  text-indent: -9999px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 
 /* Hero */
 .hero {
-  background-color: #f5f5f5;
+  background-color: var(--color-section);
 }
 .hero .inner {
   padding-bottom: 110px;
@@ -118,7 +110,7 @@ p {
   gap: 40px;
 }
 a.link {
-  color: #0071e3;
+  color: var(--color-link);
   font-size: 19px;
   line-height: 1.3;
   text-decoration: none;

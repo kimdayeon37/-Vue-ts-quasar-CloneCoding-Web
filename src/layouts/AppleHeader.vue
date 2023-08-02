@@ -214,7 +214,8 @@ https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Roboto:wght@400;500;700&display=swap");
 
 header {
-  background-color: #3a3a3a;
+  --header-height: 44px;
+  background-color: var(--color-header);
   position: relative;
   z-index: 9;
 }
@@ -223,7 +224,7 @@ header .inner {
   margin-left: 175px;
 }
 header ul.menu {
-  height: 44px;
+  height: var(--header-height);
   display: flex;
   justify-content: space-between;
   gap: 40px;
@@ -239,7 +240,7 @@ header ul.menu > li a {
   font-size: 11px;
   display: flex;
   align-items: center;
-  color: #f5f5f5;
+  color: var(--color-font-lightgray);
   opacity: 0.8;
   text-decoration: none;
 }
@@ -278,10 +279,10 @@ header ul.menu > li > a:hover {
 header .basket {
   width: 290px;
   padding: 12px 20px;
-  border: 1px solid #d2d2d2;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--color-white);
   position: absolute;
   top: 47px;
   right: -12px;
@@ -305,8 +306,8 @@ header .basket .arrow::before {
   content: "";
   width: 12px;
   height: 12px;
-  border: 1px solid #d2d2d2;
-  background-color: #fff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
@@ -316,20 +317,20 @@ header .basket .arrow::before {
 header .basket .message {
   padding: 30px 0;
   font-size: 13px;
-  color: #6e6e6e;
+  color: var(--color-font-darkgray);
   text-align: center;
 }
 header .basket ul {
   margin-top: 10px;
 }
 header .basket ul li {
-  border-top: 1px solid #d2d2d2;
+  border-top: 1px solid var(--color-border);
 }
 header .basket ul li a {
   display: block;
   padding: 14px;
   font-size: 13px;
-  color: #0071e3;
+  color: var(--color-link);
 }
 header .basket ul li a:hover {
   text-decoration: underline;
@@ -354,7 +355,7 @@ header .search .shadow {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: var(--color-shadow);
   top: 0;
   left: 0;
 }
@@ -363,18 +364,18 @@ header .search .textfield {
 }
 header .search input {
   width: 100%;
-  height: 44px;
+  height: var(--header-height);
   padding: 0 40px;
   border: none;
   outline: none;
   box-sizing: border-box;
   background-color: transparent;
   font-size: 17px;
-  color: #fff;
+  color: var(--color-white);
 }
 header .search .search-icon {
   width: 40px;
-  height: 44px;
+  height: var(--header-height);
   background-image: url("../assets/images/header_search.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -385,7 +386,7 @@ header .search .search-icon {
 }
 header .search .search-closer {
   width: 40px;
-  height: 44px;
+  height: var(--header-height);
   background-image: url("../assets/images/header_close.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -405,7 +406,7 @@ header .search .autocompletes {
   padding: 26px 40px 20px;
   border-radius: 0 0 18px 18px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: var(--color-white);
   position: absolute;
   top: 44px;
   left: 0;
@@ -413,7 +414,7 @@ header .search .autocompletes {
 
 header .search .autocompletes h3 {
   font-size: 12px;
-  color: #6e6e6e;
+  color: var(--color-font-darkgray);
   margin-top: 12px;
 }
 header .search .autocompletes ul li a {
@@ -424,8 +425,8 @@ header .search .autocompletes ul li a {
   cursor: pointer;
 }
 header .search .autocompletes ul li:hover a {
-  background-color: #f5f5f5;
-  color: #0071e3;
+  background-color: var(--color-section);
+  color: var(--color-link);
 }
 
 header.searching ul.menu > li {

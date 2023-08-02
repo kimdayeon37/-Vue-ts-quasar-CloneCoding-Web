@@ -33,20 +33,20 @@ a {
   outline: none;
   font-size: 11px;
   line-height: 1;
-  color: #fff;
-  background-color: #0071e3;
+  color: var(--color-white);
+  background-color: var(--color-link);
   cursor: pointer;
 }
 .btn:hover {
   opacity: .7;
 }
 .btn:focus {
-  box-shadow: 0 0 0 4px #81b9f1;
+  box-shadow: 0 0 0 4px var(--color-link-focus);
 }
 /* Navigation */
 nav {
   --nav-height: 52px;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--color-border);
   background-color: rgba(255, 255, 255, .7);
   backdrop-filter: blur(20px);
   top: 0px;
@@ -81,10 +81,10 @@ nav .menu li.active a {
   cursor: default;
 }
 nav .menu li:hover a {
-  color: #0071e3;
+  color: var(--color-link);
 }
 nav .menu li.active:hover a {
-  color: #1d1d1d;
+  color: var(--color-font);
 }
 
 </style>
