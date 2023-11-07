@@ -478,6 +478,7 @@ export default {
   line-height: 1.4;
   color: #333;
   height: 3000px;
+  margin-top: 150px;
 }
 a {
   text-decoration: none;
@@ -552,6 +553,7 @@ img {
   z-index: 9;
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
+  margin-top: 50px;
 }
 .header > .inner {
   height: 120px;

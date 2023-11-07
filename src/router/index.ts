@@ -9,7 +9,8 @@ const router = createRouter({
       component: () => import('../layouts/MainLayout.vue'),
       children: [
         {
-          path: '/starbucks',
+          path: '',
+          name: 'starbucks',
           component: () => import('../views/StarbucksView.vue'),
         },
         {
