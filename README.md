@@ -1,3 +1,8 @@
+# Vue를 활용한 스타벅스 / 인스타그램 / 유튜브 / 애플 페이지 클론 코딩
+vue.js와 quasar, typescript를 익히기 위한 프로젝트 진행
+
+개발 기간 [2023.2.1 ~ 2023.3.2]
+
 # vue-project
 
 This template should help get you started developing with Vue 3 in Vite.
