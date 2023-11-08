@@ -5,7 +5,10 @@ vue.js를 활용하여 quasar, typescript를 학습하기 위한 프로젝트 �
 
 ## ⚡ 기술 스택
 <img src="https://img.shields.io/badge/vue-4FC08D?style=for-the-badge&logo=vue&logoColor=white"> <img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/quasar-050A14?style=for-the-badge&logo=quasar&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
+
 개발기간 [2023.2.1 ~ 2023.3.2]
+
+<br/>
 <br/>
 
 ## ⚡ 페이지 스크린샷
