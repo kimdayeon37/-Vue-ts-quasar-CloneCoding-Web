@@ -1,6 +1,10 @@
 # 🌟 스타벅스 / 인스타그램 / 유튜브 / 애플 페이지 클론 코딩
 vue.js와 quasar, typescript를 익히기 위한 프로젝트 진행
 
+## ⚡ 기술 스택
+<img src="https://img.shields.io/badge/vue-4FC08D?style=for-the-badge&logo=vue&logoColor=white"> <img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white"> <img src="https://img.shields.io/badge/quasar-050A14?style=for-the-badge&logo=quasar&logoColor=white"> <img src="https://img.shields.io/badge/sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
+
+## ⚡ 페이지 스크린샷
 스타벅스 page
 ![image](https://github.com/kimdayeon37/Vue.ts.quasar-CloneCoding_Web/assets/93921784/3873876a-dd2f-4fc2-9120-9a511cbacdad)
 스타벅스 메뉴
