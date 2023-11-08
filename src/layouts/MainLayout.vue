@@ -10,7 +10,7 @@ const YoutubeHeaderComp = defineAsyncComponent(() => import('./YoutubeHeader.vue
 const AppleHeaderComp = defineAsyncComponent(() => import('./AppleHeader.vue'))
 
 const leftMenuItem = ref<{ url: string; text: string }[]>([
-  { url: "/", text: "Starbucks" },
+  { url: "/starbucks", text: "Starbucks" },
   { url: "/instagram", text: "Instagram" },
   { url: "/youtube", text: "Youtube" },
   { url: "/apple", text: "Apple" },
@@ -31,7 +31,7 @@ const toggleDark = () => $q.dark.toggle();
 
     <!-- drawer content -->
     <q-drawer show-if-above v-model="headerbar.leftDrawerOpen" side="left" :width="240">
-      <q-list bordered separator>
+      <q-list>
         <q-item
           clickable
           v-ripple
